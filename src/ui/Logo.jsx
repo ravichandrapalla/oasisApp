@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import styled from "styled-components";
 
 const StyledLogo = styled.div`
@@ -12,7 +13,7 @@ const Img = styled.img`
 function Logo() {
   return (
     <StyledLogo>
-      <Img src="/logo-light.png" alt="Logo" />
+      <Img src="./src/data/img/logo-light.png" alt="Logo" />
     </StyledLogo>
   );
 }
