@@ -1,3 +1,6 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable no-unused-vars */
+import { HiXMark } from "react-icons/hi2";
 import styled from "styled-components";
 
 const StyledModal = styled.div`
@@ -48,3 +51,17 @@ const Button = styled.button`
     color: var(--color-grey-500);
   }
 `;
+
+function Modal({ setIsOpenModal, children }) {
+  return (
+    <Overlay>
+      <StyledModal>
+        <Button>
+          <HiXMark onClick={setIsOpenModal} />
+        </Button>
+        <div>{children}</div>
+      </StyledModal>
+    </Overlay>
+  );
+}
+export default Modal;
