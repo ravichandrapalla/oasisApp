@@ -1,7 +1,17 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
+import {
+  cloneElement,
+  createContext,
+  useContext,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
+import { createPortal } from "react-dom";
 import { HiXMark } from "react-icons/hi2";
 import styled from "styled-components";
+import useOutsideClick from "../hooks/useOutsideClick";
 
 const StyledModal = styled.div`
   position: fixed;
@@ -51,17 +61,57 @@ const Button = styled.button`
     color: var(--color-grey-500);
   }
 `;
+const ModalContext = createContext();
+function Modal({ children }) {
+  const [openName, setOpenName] = useState("");
 
-function Modal({ setIsOpenModal, children }) {
+  const close = () => setOpenName("");
+  const open = setOpenName;
   return (
-    <Overlay>
-      <StyledModal>
-        <Button>
-          <HiXMark onClick={setIsOpenModal} />
-        </Button>
-        <div>{children}</div>
-      </StyledModal>
-    </Overlay>
+    <ModalContext.Provider value={{ openName, close, open }}>
+      {children}
+    </ModalContext.Provider>
   );
 }
+
+function Open({ children, opens: openWindowName }) {
+  const { open } = useContext(ModalContext);
+  return cloneElement(children, { onClick: () => open(openWindowName) });
+}
+
+function Window({ children, name }) {
+  const { openName, close } = useContext(ModalContext);
+  const ref = useOutsideClick(close);
+  // const ref = useRef();
+  // useEffect(
+  //   function () {
+  //     function handleClick(e) {
+  //       if (ref.current && !ref.current.contains(e.target)) {
+  //         console.log("outside clicked");
+  //         close();
+  //       }
+  //     }
+  //     document.addEventListener("click", handleClick, true);
+  //     return () => document.removeEventListener("click", handleClick, true);
+  //   },
+
+  //   [close]
+  // );
+
+  if (name !== openName) return null;
+  return createPortal(
+    <Overlay>
+      <StyledModal ref={ref}>
+        <Button onClick={close}>
+          <HiXMark />
+        </Button>
+        <div>{cloneElement(children, { onClose: close })}</div>
+      </StyledModal>
+    </Overlay>,
+    document.body
+  );
+}
+
+Modal.Open = Open;
+Modal.Window = Window;
 export default Modal;
