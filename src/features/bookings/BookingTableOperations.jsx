@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import SortBy from "../../ui/SortBy";
 import Filter from "../../ui/Filter";
 import TableOperations from "../../ui/TableOperations";
@@ -6,7 +7,7 @@ function BookingTableOperations() {
   return (
     <TableOperations>
       <Filter
-        filterField="status"
+        filteredField="status"
         options={[
           { value: "all", label: "All" },
           { value: "checked-out", label: "Checked out" },
