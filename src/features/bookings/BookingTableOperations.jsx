@@ -7,7 +7,7 @@ function BookingTableOperations() {
   return (
     <TableOperations>
       <Filter
-        filteredField="status"
+        filterField="status"
         options={[
           { value: "all", label: "All" },
           { value: "checked-out", label: "Checked out" },
