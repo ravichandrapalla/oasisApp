@@ -9,7 +9,12 @@ import {
   HiOutlineCalendarDays,
   HiOutlineChartBar,
 } from "react-icons/hi2";
-export function Stats({ bookings, confirmedStays, numDays, cabinCount }) {
+export default function Stats({
+  bookings,
+  confirmedStays,
+  numDays,
+  cabinCount,
+}) {
   //1. no of bookings
   const numBookings = bookings.length;
   const sales = bookings.reduce((acc, cur) => acc + cur.totalPrice, 0);

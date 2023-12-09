@@ -57,7 +57,7 @@ const StyledSalesChart = styled(DashboardBox)`
 //   { label: "Feb 06", totalSales: 1450, extrasSales: 400 },
 // ];
 
-export function SalesChart({ bookings, numDays }) {
+export default function SalesChart({ bookings, numDays }) {
   const { isDarkMode } = useDarkMode();
   const allDates = eachDayOfInterval({
     start: subDays(new Date(), numDays - 1),
