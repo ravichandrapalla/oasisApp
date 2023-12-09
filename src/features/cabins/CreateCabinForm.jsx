@@ -2,7 +2,7 @@
 /* eslint-disable no-unused-vars */
 import styled from "styled-components";
 
-import Input from "../../ui/Input";
+
 import Form from "../../ui/Form";
 import Button from "../../ui/Button";
 import FileInput from "../../ui/FileInput";
@@ -14,6 +14,7 @@ import toast from "react-hot-toast";
 import FormRow from "../../ui/FormRow";
 import { useCreateCabin } from "./useCreateCabin";
 import { useEditCabin } from "./useEditCabin";
+import Input from "../../ui/Input";
 // const FormRow = styled.div`
 //   display: grid;
 //   align-items: center;
