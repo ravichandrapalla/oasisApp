@@ -8,7 +8,6 @@ export async function getCabins() {
     console.log(error);
     throw new Error("Cabins could not be loaded");
   }
-  console.log("cabins are", data);
   return data;
 }
 export async function createEditCabin(newCabin, id) {

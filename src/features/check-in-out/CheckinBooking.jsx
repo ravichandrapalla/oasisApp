@@ -29,17 +29,18 @@ const Box = styled.div`
 
 function CheckinBooking() {
   const [confirmPaid, setConfirmPaid] = useState(false);
+  const [addBreakFast, setAddBreakFast] = useState(false);
   const { booking, isLoading } = useBooking();
   const { settings, isLoading: isLoadingSettings } = useSettings();
 
   useEffect(() => {
-    setConfirmPaid(booking?.isPaid || false);
+    setConfirmPaid(booking?.isPaid ?? false);
   }, [booking]);
 
   const moveBack = useMoveBack();
 
   const { checkin, isCheckingIn } = useCheckin();
-  const [addBreakFast, setAddBreakFast] = useState(false);
+
   if (isLoading || isLoadingSettings) return <Spinner />;
 
   const {

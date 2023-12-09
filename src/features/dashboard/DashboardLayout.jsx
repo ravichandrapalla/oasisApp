@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-no-undef */
 /* eslint-disable react/no-unescaped-entities */
 /* eslint-disable no-unused-vars */
 import styled from "styled-components";
@@ -29,7 +30,7 @@ export function DashboardLayout() {
   if (bookingsIsLoading || staysIsLoading || cabinsIsLoading)
     return <Spinner />;
 
-  console.log(bookings);
+  // console.log(bookings);
   return (
     <StyledDashboardLayout>
       <Stats

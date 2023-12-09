@@ -14,15 +14,7 @@ const Img = styled.img`
 
 function Logo() {
   const { isDarkMode } = useDarkMode();
-  useEffect(() => {
-    if (isDarkMode) {
-      document.documentElement.classList.add("dark-mode");
-      document.documentElement.classList.remove("light-mode");
-    } else {
-      document.documentElement.classList.add("light-mode");
-      document.documentElement.classList.remove("dark-mode");
-    }
-  }, [isDarkMode]);
+
   return (
     <StyledLogo>
       <Img src={isDarkMode ? "/logo-dark.png" : "/logo-light.png"} alt="Logo" />

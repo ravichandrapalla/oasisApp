@@ -1,4 +1,10 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable no-unused-vars */
 import styled from "styled-components";
+import Heading from "./Heading";
+import GlobalStyles from "../styles/GlobalStyles";
+import Button from "./Button";
+import { PAGE_SIZE } from "./constants";
 
 const StyledErrorFallback = styled.main`
   height: 100vh;
@@ -29,3 +35,20 @@ const Box = styled.div`
     color: var(--color-grey-500);
   }
 `;
+
+export function ErrorFallBack({ error, resetErrorBoundary }) {
+  return (
+    <>
+      <GlobalStyles />
+      <StyledErrorFallback>
+        <Box>
+          <Heading as="h1">SomeThing went wrong :)</Heading>
+          <p>{error.message}</p>
+          <Button size="large" onClick={resetErrorBoundary}>
+            Try again
+          </Button>
+        </Box>
+      </StyledErrorFallback>
+    </>
+  );
+}
