@@ -4,7 +4,7 @@ import Form from "../../ui/Form";
 import FormRow from "../../ui/FormRow";
 
 import { useUpdateUser } from "./useUpdateUser";
-import Input from "./../../ui/Input";
+import StyledInput from "../../ui/StyledInput";
 
 function UpdatePasswordForm() {
   const { register, handleSubmit, formState, getValues, reset } = useForm();
@@ -22,7 +22,7 @@ function UpdatePasswordForm() {
         label="New Password (min 8 chars)"
         error={errors?.password?.message}
       >
-        <Input
+        <StyledInput
           type="password"
           id="password"
           autoComplete="current-password"
@@ -41,7 +41,7 @@ function UpdatePasswordForm() {
         label="Confirm New password"
         error={errors?.passwordConfirm?.message}
       >
-        <Input
+        <StyledInput
           type="password"
           autoComplete="new-password"
           id="passwordConfirm"

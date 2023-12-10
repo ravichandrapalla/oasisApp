@@ -5,7 +5,7 @@ import FormRow from "../../ui/FormRow";
 import useSettings from "./useSettings";
 import Spinner from "./../../ui/Spinner";
 import { useUpdateSetting } from "./useUpdateSetting";
-import Input from "./../../ui/Input";
+import StyledInput from "../../ui/StyledInput";
 
 function UpdateSettingsForm() {
   const {
@@ -28,7 +28,7 @@ function UpdateSettingsForm() {
   return (
     <Form>
       <FormRow label="Minimum nights/booking">
-        <Input
+        <StyledInput
           type="number"
           id="min-nights"
           defaultValue={minBookingLength}
@@ -37,7 +37,7 @@ function UpdateSettingsForm() {
         />
       </FormRow>
       <FormRow label="Maximum nights/booking">
-        <Input
+        <StyledInput
           type="number"
           id="max-nights"
           defaultValue={maxBookingLength}
@@ -46,7 +46,7 @@ function UpdateSettingsForm() {
         />
       </FormRow>
       <FormRow label="Maximum guests/booking">
-        <Input
+        <StyledInput
           type="number"
           id="max-guests"
           defaultValue={maxGuestsPerBooking}
@@ -55,7 +55,7 @@ function UpdateSettingsForm() {
         />
       </FormRow>
       <FormRow label="Breakfast price">
-        <Input
+        <StyledInput
           type="number"
           id="breakfast-price"
           defaultValue={breakFastPrice}

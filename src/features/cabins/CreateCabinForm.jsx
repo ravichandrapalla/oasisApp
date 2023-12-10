@@ -1,7 +1,5 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
-import styled from "styled-components";
-
 
 import Form from "../../ui/Form";
 import Button from "../../ui/Button";
@@ -14,7 +12,8 @@ import toast from "react-hot-toast";
 import FormRow from "../../ui/FormRow";
 import { useCreateCabin } from "./useCreateCabin";
 import { useEditCabin } from "./useEditCabin";
-import Input from "../../ui/Input";
+import StyledInput from "../../ui/StyledInput";
+
 // const FormRow = styled.div`
 //   display: grid;
 //   align-items: center;
@@ -100,7 +99,7 @@ function CreateCabinForm({ cabinToEdit = {}, onClose }) {
       type={onClose ? "modal" : "regular"}
     >
       <FormRow label="Cabin name" error={errors?.name?.message}>
-        <Input
+        <StyledInput
           type="text"
           id="name"
           disabled={isWorking}
@@ -109,7 +108,7 @@ function CreateCabinForm({ cabinToEdit = {}, onClose }) {
       </FormRow>
 
       <FormRow label="Maximum capacity" error={errors?.maxCapacity?.message}>
-        <Input
+        <StyledInput
           type="number"
           id="maxCapacity"
           disabled={isWorking}
@@ -124,7 +123,7 @@ function CreateCabinForm({ cabinToEdit = {}, onClose }) {
       </FormRow>
 
       <FormRow label="Regular price" error={errors?.regularPrice?.message}>
-        <Input
+        <StyledInput
           type="number"
           id="regularPrice"
           disabled={isWorking}
@@ -136,7 +135,7 @@ function CreateCabinForm({ cabinToEdit = {}, onClose }) {
       </FormRow>
 
       <FormRow label="Discount" error={errors?.discount?.message}>
-        <Input
+        <StyledInput
           type="number"
           id="discount"
           defaultValue={0}

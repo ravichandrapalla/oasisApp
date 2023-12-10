@@ -6,7 +6,7 @@ import FormRowVertical from "../../ui/FormRowVertical";
 
 import useLogin from "./useLogin";
 import SpinnerMini from "./../../ui/SpinnerMini";
-import Input from "./../../ui/Input";
+import StyledInput from "../../ui/StyledInput";
 
 function LoginForm() {
   const [email, setEmail] = useState("");
@@ -30,7 +30,7 @@ function LoginForm() {
   return (
     <Form onSubmit={handleSubmit}>
       <FormRowVertical label="Email address">
-        <Input
+        <StyledInput
           type="email"
           id="email"
           // This makes this form better for password managers
@@ -40,7 +40,7 @@ function LoginForm() {
         />
       </FormRowVertical>
       <FormRowVertical label="Password">
-        <Input
+        <StyledInput
           type="password"
           id="password"
           autoComplete="current-password"
